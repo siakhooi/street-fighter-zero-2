@@ -1,0 +1,365 @@
+/* Street Fighter Zero 2 - Modern Theme */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Rajdhani', sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background-attachment: fixed;
+    color: #e0e0e0;
+    line-height: 1.8;
+    padding: 2rem;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative line */
+.decorative-line {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 1.5rem auto;
+    opacity: 0.6;
+}
+
+/* Logo/Header Section */
+.logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-section img {
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
+}
+
+/* Page Title */
+.page-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Introduction text */
+.intro-text {
+    text-align: center;
+    font-size: 1.15rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    line-height: 1.9;
+}
+
+.intro-text .highlight {
+    color: #00d4ff;
+}
+
+.intro-text .highlight-yellow {
+    color: #ffff00;
+}
+
+.intro-text .highlight-pink {
+    color: #ff0080;
+}
+
+/* Instruction text */
+.instruction {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    font-style: italic;
+    margin: 1.5rem 0;
+}
+
+/* Character Grid */
+.character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.character-grid a {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.character-grid img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.character-grid a:hover img {
+    border-color: #ff0080;
+    box-shadow: 0 0 25px rgba(255, 0, 128, 0.5);
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* Links Section */
+.links-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.links-section a {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.links-section a img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.links-section a:hover img {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Credit text */
+.credit {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #aaa;
+    margin: 1.5rem 0;
+}
+
+.credit a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.credit img {
+    height: 30px;
+    width: auto;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Character page styles */
+.character-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.character-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+/* Move images */
+.moves-section {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.moves-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.character-art {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+    margin: 1rem 0;
+}
+
+/* Back link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.back-link img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-link:hover img {
+    border-color: #ff0080;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+    transform: scale(1.05);
+}
+
+/* Cheats page styles */
+.cheat-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.cheat-item p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.cheat-number {
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+.cheat-highlight {
+    color: #ffff00;
+    font-weight: 600;
+}
+
+.cheat-note {
+    color: #ff0080;
+}
+
+/* Universal moves page */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin: 2rem 0 1rem;
+    text-align: left;
+}
+
+.move-explanation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.move-explanation img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.move-explanation p {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    min-width: 250px;
+}
+
+/* Profile page */
+.profile-header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+/* Divider */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+    margin: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .page-title, .character-name {
+        font-size: 1.8rem;
+    }
+
+    .character-grid img {
+        width: 60px;
+    }
+
+    .move-explanation {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .move-explanation p {
+        min-width: auto;
+    }
+}
+
+/* Back navigation */
+.back-nav {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.back-nav a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.back-nav a:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
