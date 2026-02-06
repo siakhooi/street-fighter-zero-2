@@ -121,44 +121,53 @@
             97% { opacity: 1; }
         }
 
-        /* Countdown */
-        .countdown {
+        /* Navigation Links */
+        .nav-links {
             display: flex;
             justify-content: center;
-            gap: clamp(1rem, 4vw, 3rem);
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 10px;
-            padding: clamp(1rem, 3vw, 2rem);
-            min-width: clamp(70px, 15vw, 120px);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .countdown-item:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .countdown-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 6vw, 4rem);
+        .nav-link {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: #fff;
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-size: clamp(0.7rem, 2vw, 1rem);
-            color: #888;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 0.5rem;
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
+            border-color: transparent;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
         }
 
         /* Fight message */
@@ -174,101 +183,7 @@
             font-weight: 700;
         }
 
-        /* Email signup */
-        .signup-form {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
 
-        .signup-form input {
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            width: clamp(200px, 40vw, 300px);
-            font-family: 'Rajdhani', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .signup-form input:focus {
-            outline: none;
-            border-color: #00d4ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .signup-form input::placeholder {
-            color: #666;
-        }
-
-        .signup-form button {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: none;
-            border-radius: 50px;
-            background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
-            color: #fff;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .signup-form button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
-        }
-
-        .signup-form button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .signup-form button:hover::before {
-            left: 100%;
-        }
-
-        /* Social links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            border-color: #00d4ff;
-            color: #00d4ff;
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        }
 
         /* Corner decorations */
         .corner {
@@ -302,7 +217,7 @@
     <!-- Background elements -->
     <div class="particles" id="particles"></div>
     <div class="vs-badge">VS</div>
-    
+
     <!-- Corner decorations -->
     <div class="corner corner-tl"></div>
     <div class="corner corner-tr"></div>
@@ -315,40 +230,13 @@
             <p class="subtitle">Zero 2</p>
         </div>
 
-        <div class="countdown" id="countdown">
-            <div class="countdown-item">
-                <div class="countdown-number" id="days">00</div>
-                <div class="countdown-label">Days</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
-            </div>
-        </div>
-
         <p class="fight-message">
             A new challenger is approaching! <br>
             Get ready for the <span class="highlight">ultimate battle</span> experience.
         </p>
 
-        <form class="signup-form" onsubmit="handleSubmit(event)">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
-
-        <div class="social-links">
-            <a href="#" class="social-link" title="Twitter">𝕏</a>
-            <a href="#" class="social-link" title="Discord">◈</a>
-            <a href="#" class="social-link" title="YouTube">▶</a>
-            <a href="#" class="social-link" title="Twitch">◉</a>
+        <div class="nav-links">
+            <a href="sfa2/main.html" class="nav-link">Alpha 2 Tips</a>
         </div>
     </div>
 
@@ -362,43 +250,6 @@
             particle.style.animationDelay = Math.random() * 15 + 's';
             particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
             particlesContainer.appendChild(particle);
-        }
-
-        // Countdown Timer
-        const launchDate = new Date('2026-03-15T00:00:00').getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = '<h2 style="color: #00d4ff; font-family: Orbitron;">FIGHT!</h2>';
-            }
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // Form submission
-        function handleSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            btn.textContent = 'READY!';
-            btn.style.background = 'linear-gradient(135deg, #00ff88 0%, #00d4ff 100%)';
-            setTimeout(() => {
-                btn.textContent = 'NOTIFY ME';
-                btn.style.background = 'linear-gradient(135deg, #00d4ff 0%, #ff0080 100%)';
-            }, 2000);
         }
 
         // Add energy lines randomly
