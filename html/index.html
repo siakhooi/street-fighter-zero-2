@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Street Fighter Zero 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Energy lines */
+        .energy-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            animation: energyPulse 3s infinite;
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        /* Logo/Title */
+        .logo {
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(180deg, #fff 0%, #00d4ff 50%, #ff0080 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+            animation: titleGlow 2s ease-in-out infinite alternate;
+            letter-spacing: 4px;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 0, 128, 0.5)); }
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #00d4ff;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            animation: flicker 4s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.3; }
+            94% { opacity: 1; }
+            96% { opacity: 0.5; }
+            97% { opacity: 1; }
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: clamp(1rem, 3vw, 2rem);
+            min-width: clamp(70px, 15vw, 120px);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+
+        /* Fight message */
+        .fight-message {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #aaa;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #ff0080;
+            font-weight: 700;
+        }
+
+        /* Email signup */
+        .signup-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .signup-form input {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            width: clamp(200px, 40vw, 300px);
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .signup-form input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .signup-form input::placeholder {
+            color: #666;
+        }
+
+        .signup-form button {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+        }
+
+        .signup-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .signup-form button:hover::before {
+            left: 100%;
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Corner decorations */
+        .corner {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .corner-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        /* VS Badge */
+        .vs-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 15rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="particles" id="particles"></div>
+    <div class="vs-badge">VS</div>
+    
+    <!-- Corner decorations -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <div class="container">
+        <div class="logo">
+            <h1 class="title">STREET FIGHTER</h1>
+            <p class="subtitle">Zero 2</p>
+        </div>
+
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <p class="fight-message">
+            A new challenger is approaching! <br>
+            Get ready for the <span class="highlight">ultimate battle</span> experience.
+        </p>
+
+        <form class="signup-form" onsubmit="handleSubmit(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Notify Me</button>
+        </form>
+
+        <div class="social-links">
+            <a href="#" class="social-link" title="Twitter">𝕏</a>
+            <a href="#" class="social-link" title="Discord">◈</a>
+            <a href="#" class="social-link" title="YouTube">▶</a>
+            <a href="#" class="social-link" title="Twitch">◉</a>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Countdown Timer
+        const launchDate = new Date('2026-03-15T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h2 style="color: #00d4ff; font-family: Orbitron;">FIGHT!</h2>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.textContent = 'READY!';
+            btn.style.background = 'linear-gradient(135deg, #00ff88 0%, #00d4ff 100%)';
+            setTimeout(() => {
+                btn.textContent = 'NOTIFY ME';
+                btn.style.background = 'linear-gradient(135deg, #00d4ff 0%, #ff0080 100%)';
+            }, 2000);
+        }
+
+        // Add energy lines randomly
+        function createEnergyLine() {
+            const line = document.createElement('div');
+            line.className = 'energy-line';
+            line.style.top = Math.random() * 100 + '%';
+            line.style.left = '0';
+            line.style.width = Math.random() * 50 + 25 + '%';
+            line.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(line);
+            setTimeout(() => line.remove(), 4000);
+        }
+
+        setInterval(createEnergyLine, 2000);
+    </script>
+</body>
+</html>
