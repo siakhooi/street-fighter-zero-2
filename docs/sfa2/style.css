@@ -167,12 +167,6 @@ hr {
     transform: translateX(-5px);
 }
 
-.back-link img {
-    width: 20px;
-    height: 22px;
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(160deg);
-}
-
 /* Character Grid (for main page) */
 .character-grid {
     display: flex;

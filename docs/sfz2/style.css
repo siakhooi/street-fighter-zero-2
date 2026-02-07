@@ -212,23 +212,26 @@ body {
 
 /* Back link */
 .back-link {
-    display: block;
-    text-align: center;
-    margin: 2rem 0 1rem;
-}
-
-.back-link img {
-    max-width: 200px;
-    height: auto;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
     border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px;
     transition: all 0.3s ease;
+    margin: 2rem auto 1rem;
 }
 
-.back-link:hover img {
-    border-color: #ff0080;
-    box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
-    transform: scale(1.05);
+.back-link:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    transform: translateX(-5px);
 }
 
 /* Cheats page styles */
